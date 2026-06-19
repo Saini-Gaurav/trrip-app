@@ -19,13 +19,14 @@ export interface AuthRequest extends Request {
     email: string;
     name: string;
   };
+  cookies: Record<string, string>;
 }
 
 // ─── Refresh Token ────────────────────────────────────────────────────────────
 export interface IRefreshToken extends Document {
   _id: Types.ObjectId;
   userId: Types.ObjectId;
-  tokenHash: string;       // bcrypt hash of the raw token stored in cookie
+  tokenHash: string;
   expiresAt: Date;
   createdAt: Date;
 }
