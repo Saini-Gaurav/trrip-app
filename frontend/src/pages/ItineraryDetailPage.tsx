@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import {
   MapPin, Calendar, Clock, Share2, Trash2, ChevronDown, ChevronUp,
   Plane, Hotel, Utensils, Car, Star, Globe, Lock, Copy, CheckCheck,
-  ArrowLeft, Loader2, Lightbulb, AlertCircle,
+  ArrowLeft, Loader2, Lightbulb
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { itinerariesApi } from '../services/api';

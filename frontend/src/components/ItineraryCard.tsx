@@ -14,15 +14,6 @@ interface Props {
   onShareToggle?: (id: string, isShared: boolean) => void;
 }
 
-const activityTypeColors: Record<string, string> = {
-  flight: 'bg-blue-100 text-blue-700',
-  hotel: 'bg-purple-100 text-purple-700',
-  activity: 'bg-teal-100 text-teal-700',
-  transport: 'bg-orange-100 text-orange-700',
-  meal: 'bg-rose-100 text-rose-700',
-  other: 'bg-gray-100 text-gray-700',
-};
-
 export default function ItineraryCard({ itinerary, onDelete, onShareToggle }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sharing, setSharing] = useState(false);
