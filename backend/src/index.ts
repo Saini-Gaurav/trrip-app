@@ -57,7 +57,7 @@ app.use('/api/itineraries', itineraryRoutes);
 
 // ─── Error Handling ───────────────────────────────────────────────────────────
 app.use(notFound);
-app.use(errorHandler)
+app.use(errorHandler);
 
 // ─── Start Server ─────────────────────────────────────────────────────────────
 const startServer = async (): Promise<void> => {
