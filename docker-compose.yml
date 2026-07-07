@@ -1,24 +1,51 @@
-services: 
+version: "3.9"
+
+services:
   backend:
-    build:
-      context: ./backend
+    build: ./backend
     container_name: backend
     restart: unless-stopped
-    ports:
-      - "5000:5000"
+
     env_file:
-      - ./backend/.env
+      - .env
+
+    environment:
+      PORT: ${PORT}
+      NODE_ENV: ${NODE_ENV}
+
+      MONGODB_URI: ${MONGODB_URI}
+
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ACCESS_EXPIRES_IN: ${JWT_ACCESS_EXPIRES_IN}
+
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
+
+      CLIENT_URL: ${CLIENT_URL}
+
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS}
+      RATE_LIMIT_MAX: ${RATE_LIMIT_MAX}
+
+      LOG_LEVEL: ${LOG_LEVEL}
+
+    ports:
+      - "4000:4000"
 
   frontend:
     build:
       context: ./frontend
-      args: 
-        VITE_API_BASE_URL: http://backend:5000
+      args:
+        VITE_API_URL: http://localhost:5000/api
+
     container_name: frontend
     restart: unless-stopped
+
     ports:
       - "5173:5173"
+
     depends_on:
-      - backend  
-
-
+      - backend
