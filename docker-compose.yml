@@ -33,13 +33,13 @@ services:
       LOG_LEVEL: ${LOG_LEVEL}
 
     ports:
-      - "4000:4000"
+      - "5000:5000"
 
   frontend:
     build:
       context: ./frontend
       args:
-        VITE_API_URL: http://localhost:5000/api
+        VITE_API_URL: http://44.218.203.225/:5000/api
 
     container_name: frontend
     restart: unless-stopped
