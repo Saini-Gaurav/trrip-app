@@ -14,6 +14,8 @@ interface Props {
   onShareToggle?: (id: string, isShared: boolean) => void;
 }
 
+// itinerary card
+
 export default function ItineraryCard({ itinerary, onDelete, onShareToggle }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sharing, setSharing] = useState(false);
